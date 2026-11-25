@@ -2,6 +2,8 @@
 
 The macOS equivalent of Linux's `xkill`: run it, click a window, and that app is gone.
 
+![xkill killing a frozen app, then Calculator, then TextEdit](demo.gif)
+
 Run `xkill` and the cursor turns into an ✕ on every screen and Desktop.
 The window under the pointer is highlighted in red with its app's name, so you see what you're about to kill.
 Click it and the app is killed on the spot (`SIGKILL`, the same as `kill -9`), and a notification says what died.
