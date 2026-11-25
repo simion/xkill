@@ -1,9 +1,10 @@
 # xkill for macOS
 
-Click a window, its app dies. Like X11's `xkill`, but for the Mac.
+The macOS equivalent of Linux's `xkill`: run it, click a window, and that app is gone.
 
 Run `xkill` and the cursor turns into an ✕ on every screen and Desktop.
-Click any window and its app is killed on the spot (`SIGKILL`), with a notification saying what died.
+The window under the pointer is highlighted in red with its app's name, so you see what you're about to kill.
+Click it and the app is killed on the spot (`SIGKILL`, the same as `kill -9`), and a notification says what died.
 Esc or right-click cancels.
 
 ```sh
@@ -13,6 +14,14 @@ brew install simion/tap/xkill
 Updates come with `brew upgrade`.
 
 > **Warning:** this is the hard kill. The app gets no chance to save, so unsaved work is lost.
+
+## Differences from X11 `xkill`
+
+Same workflow, adapted to how macOS works:
+
+- **It kills the whole app.** X11 `xkill` closes one client's X connection; macOS has no equivalent, so this sends `SIGKILL` to the process that owns the window. All of that app's windows go with it.
+- **No flags.** `-id`, `-button`, `-frame` and `-all` aren't implemented. Click-to-kill is the whole tool.
+- **Extras:** the red highlight before you click, and a notification after.
 
 ## Notes
 
